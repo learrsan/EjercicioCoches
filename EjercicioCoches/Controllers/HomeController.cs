@@ -19,27 +19,34 @@ namespace EjercicioCoches.Controllers
             return View(db.Vehiculo.ToList());
 
         }
-
+        public ActionResult Detalles
+        
+            
+            public ActionResult Alta()
+        {
+            return View(new Vehiculo());
+        }
+       
         [HttpPost]
+        [ValidateAntiForgeryToken]
+
         public ActionResult Alta(Vehiculo model)
         {
             if (ModelState.IsValid)
             {
                 db.Vehiculo.Add(model);
-                foreach (var idvehiculo in model.IdVehiculo)
-                {
-                    var c = db.Conductor.Find(idvehiculo);
-                    model.Conductor.Add(c);
-                }
                 db.SaveChanges();
-
                 return RedirectToAction("Index");
             }
             return View(model);
         }
+
+        
+        
+        }
         
         }
 
-    }
+    
      
 

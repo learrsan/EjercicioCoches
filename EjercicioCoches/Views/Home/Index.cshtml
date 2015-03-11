@@ -26,6 +26,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Conductor)
         </th>
+       
         
         
         
@@ -45,9 +46,12 @@
                 @Html.DisplayFor(modelItem => item.modelo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Conductor)
+                @Html.DisplayFor(modelItem => item.modelo)
             </td>
-            
+                @foreach (var conductor in item.Conductor)
+                {
+                    <li>@Html.ActionLink(conductor.nombre, conductor.apellidos,"Detalles", new { id = item.id})</li>
+                }
             
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
