@@ -7,6 +7,6 @@ namespace EjercicioCoches.Models
 {
     public partial class Vehiculo
     {
-        public List<int> IdVehiculo { get; set; }
+       public List<int> idConductores { get; set; }
     }
 }
