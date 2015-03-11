@@ -19,7 +19,12 @@ namespace EjercicioCoches.Controllers
             return View(db.Vehiculo.ToList());
 
         }
-        public ActionResult Detalles
+
+        public ActionResult Detalles(int id)
+        {
+            var vehiculo = db.Vehiculo.Find(id);
+            return View();
+        }
         
             
             public ActionResult Alta()
